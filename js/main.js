@@ -1,52 +1,20 @@
-<<<<<<< HEAD
+
 var $type = $('.type label');
 var $material = $('.material  label');
+var $result = $('.choose-price .total-price')
 
 $type.click(function(){
-  console.log('lffg');
-});
+  var $price = $(this).next().find('.type-price').text();
+  $result = $('.choose-price #total-price').text($price);
 
-$material.click(function(){
-
-});
-=======
-$( document ).ready(function() {
-  var curTypeVal = 0,
-      newTypeVal = 0,
-      curMatVal = 0,
-      newMatVal = 0,
-      totalPrice = 0;
-
-  var $total = $('#total-price');
-     
-  $('#form-2 .type label').on('click', function(){
-    var newTypeVal = parseInt($(this).next().find('.type-price').text());
-
-    totalPrice += newTypeVal - curTypeVal;
-    curTypeVal = newTypeVal;
-
-    $total.text(totalPrice);
-    
-  })
-
-  $('#form-2 .material label').on('click', function(){
-    var newMatVal = parseInt($(this).find('.mat-price-val').text());
-
-    totalPrice += newMatVal - curMatVal;
-    curMatVal = newMatVal;
-
-    $total.text(totalPrice);
-    
-  })
+  $material.click(function(){
+   var $m_price = $(this).find('.mat-price-val').text();
+  $total_result = $('.choose-price #total-price').text(+$price + +$m_price);
+  });
 });
 
 
-
-
-var $window = $(window),
- $elem = $('.sidebar'); 
- 
-
-
- $(window).scroll(function(event) { $elem.css('top', $window.scrollTop() + 'px'); } );
->>>>>>> 92589d6e7a7ab5a98f5b1d0bfb20b56be94830e6
+/*$material.click(function(){
+ var $m_price = $(this).find('.mat-price-val').text();
+$total_result = $('.choose-price #total-price').text($price+$m_price);
+});*/
